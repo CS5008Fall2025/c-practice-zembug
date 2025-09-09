@@ -54,13 +54,28 @@ int test_create_array_of_ints_fib() {
     return 1;
 }
 
-
+int test_reverse_array() {
+    printf("3. test_reverse_array()\n");
+    int size = 6; // example size
+    int* arr = create_simple_array(size); // creates [0, 1, 2, 3, 4, 5]
+    reverse_array(arr, size); // should modify arr to be [5, 4, 3, 2, 1, 0]
+    int expected[] = {5, 4, 3, 2, 1, 0}; // expected result
+    for (int i = 0; i < size; i++) { // check each element
+        if (arr[i] != expected[i]) { // if any element doesn't match
+            free(arr); // free allocated memory
+            return 0; // test failed
+        }
+    }
+    free(arr); // free allocated memory
+    return 1; // all elements matched
+}
 
 // this is a list of all the unit tests
 int (*unitTests[])() = {
         test_swap_one,
         test_create_array_of_ints_fib,
         // add more test function names here
+        test_reverse_array
 };
 
 int main(int argc, char const *argv[])

@@ -104,7 +104,7 @@ int* create_array_of_ints_fib(int size){
             arr[i] = arr[i - 1] + arr[i - 2]; // each number is the sum of the two preceding ones
         }
     }
-    return arr; 
+    return arr; // return the pointer to the array
 }
 
 
@@ -118,7 +118,9 @@ int* create_array_of_ints_fib(int size){
  * Consider using swap. 
 */
 void reverse_array(int *arr, int size){
-    
+    for (int i = 0; i < size / 2; i++) { // loop through half the array (to not undo swap)
+        swap(&arr[i], &arr[size - i - 1]); // swap the elements
+    }
 }
 
 
