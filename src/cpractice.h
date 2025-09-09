@@ -13,7 +13,7 @@
  * that can be used in other files. This is the standard way of creating
  * libraries in C. In this case, the functions are implemented in the header file (.h)
  * but sometimes they are separated between header declarations (.h) and source files (.c)
- * which  you will explore in other assignments. 
+ * which you will explore in other assignments. 
 */
 
 #ifndef C_PRACTICE_H
@@ -46,7 +46,9 @@ typedef struct {
  * of the variables in the calling function. 
 **/
 void swap(int *a, int *b){
-
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 /**
@@ -88,8 +90,23 @@ void print_array(int *arr, int size)
  * here is a quick list of numbers: https://www.math.net/list-of-fibonacci-numbers
  **/
 int* create_array_of_ints_fib(int size){
-    return NULL;
+    if (size <= 0) { // if size is zero or negative, return NULL
+        return NULL;
+    }
+
+    int* arr = (int*)malloc(size * sizeof(int)); // allocate memory for the array
+    if (!arr) return NULL; // check for malloc failure
+
+    arr[0] = 1; // first Fibonacci number is 1
+    if (size > 1) { // if size is greater than 1, set the second Fibonacci number
+        arr[1] = 1; // second Fibonacci number is also 1
+        for (int i = 2; i < size; i++) { // start loop from the third element
+            arr[i] = arr[i - 1] + arr[i - 2]; // each number is the sum of the two preceding ones
+        }
+    }
+    return arr; 
 }
+
 
 /**
  * Reverses an array *in place* (meaning you don't copy into another array)

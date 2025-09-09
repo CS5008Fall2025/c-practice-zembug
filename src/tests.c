@@ -56,8 +56,6 @@ int test_create_array_of_ints_fib() {
 
 
 
-
-
 // this is a list of all the unit tests
 int (*unitTests[])() = {
         test_swap_one,
