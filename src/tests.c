@@ -199,8 +199,8 @@ int test_free_polygon() {
 
 int test_create_rectangle() {
     printf("12. test_create_rectangle()\n");
-    int width = 5;
-    int height = 10;
+    int width = 13;
+    int height = 69;
     Polygon* rect = create_rectangle(width, height);
     if (rect == NULL) {
         return 0; // test failed due to allocation failure
@@ -214,6 +214,25 @@ int test_create_rectangle() {
         return 1; // test passed
     }
     free_polygon(rect); // free allocated polygon
+    return 0; // test failed
+}
+
+int test_create_triangle() {
+    printf("13. test_create_triangle()\n");
+    int width = 13;
+    int height = 69;
+    Polygon* tri = create_triangle(width, height);
+    if (tri == NULL) {
+        return 0; // test failed due to allocation failure
+    }
+    if (tri->size == 3 &&
+        tri->points[0]->x == 0 && tri->points[0]->y == 0 &&
+        tri->points[1]->x == width && tri->points[1]->y == 0 &&
+        tri->points[2]->x == 0 && tri->points[2]->y == height) {
+        free_polygon(tri); // free allocated polygon
+        return 1; // test passed
+    }
+    free_polygon(tri); // free allocated polygon
     return 0; // test failed
 }
 
@@ -231,7 +250,8 @@ int (*unitTests[])() = {
         test_create_point,
         test_create_polygon,
         test_free_polygon,
-        test_create_rectangle
+        test_create_rectangle,
+        test_create_triangle
 };
 
 int main(int argc, char const *argv[])
