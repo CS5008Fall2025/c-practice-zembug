@@ -304,11 +304,11 @@ void print_polygon(Polygon *p){
 */
 double calculate_polygon_area(Polygon *p){
     if (p->size < 3) return 0.0; // not a polygon
-    double area = 0.0;
-    for (int i = 0; i < p->size; i++) {
+    double area = 0.0; // initialize area
+    for (int i = 0; i < p->size; i++) { // loop through each vertex
         int j = (i + 1) % p->size; // next vertex index, wrapping around
-        area += p->points[i]->x * p->points[j]->y;
-        area -= p->points[j]->x * p->points[i]->y;
+        area += p->points[i]->x * p->points[j]->y; // shoestring formula part 1
+        area -= p->points[j]->x * p->points[i]->y; // shoestring formula part 2
     }
     if (area < 0) {
         area = -area; // ensure area is positive
