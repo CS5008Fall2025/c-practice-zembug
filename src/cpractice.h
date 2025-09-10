@@ -218,7 +218,6 @@ Point* create_point(int x, int y){
  * the point values. it is just a polygon of eventual size, and an array of empty points. 
 */
 Polygon* create_polygon(int size){
-    Polygon* create_polygon(int size); // allocate memory for the polygon
     Polygon* p = (Polygon*)malloc(sizeof(Polygon)); // allocate memory for the polygon
     if (!p) return NULL; // check for allocation failure
     p -> size = size; // set the size

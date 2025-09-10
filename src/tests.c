@@ -181,6 +181,22 @@ int test_create_polygon() {
     return 0; // test failed
 }
 
+int test_free_polygon() {
+        printf("11. test_free_polygon()\n");
+
+    Polygon* poly = create_polygon(2);
+    if (!poly) return 0;
+
+    // Leave points uninitialized (NULL)
+    poly->points[0] = NULL;
+    poly->points[1] = NULL;
+
+    // Free the polygon
+    free_polygon(poly);
+
+    return 1;
+}
+
 // this is a list of all the unit tests
 int (*unitTests[])() = {
         test_swap_one,
@@ -192,7 +208,9 @@ int (*unitTests[])() = {
         test_double_array_size_negative,
         test_double_array_size_zero,
         test_copy_array_start_end_loop,
-        test_create_point
+        test_create_point,
+        test_create_polygon,
+        test_free_polygon
 };
 
 int main(int argc, char const *argv[])
