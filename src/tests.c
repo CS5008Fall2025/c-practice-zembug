@@ -148,6 +148,39 @@ int test_copy_array_start_end_loop() {
     return 1; // all elements matched
 }
 
+int test_create_point() {
+    printf("9. test_create_point()\n");
+    int x = 5;
+    int y = 10;
+    Point* p = create_point(x, y);
+    if (p == NULL) {
+        return 0; // test failed due to allocation failure
+    }
+    if (p->x == x && p->y == y) {
+        free(p); // free allocated memory
+        return 1; // test passed
+    }
+    free(p); // free allocated memory
+    return 0; // test failed
+}
+
+int test_create_polygon() {
+    printf("10. test_create_polygon()\n");
+    int size = 4;
+    Polygon* poly = create_polygon(size);
+    if (poly == NULL) {
+        return 0; // test failed due to allocation failure
+    }
+    if (poly->size == size && poly->points != NULL) {
+        free(poly->points); // free allocated points array
+        free(poly); // free allocated polygon
+        return 1; // test passed
+    }
+    free(poly->points); // free allocated points array
+    free(poly); // free allocated polygon
+    return 0; // test failed
+}
+
 // this is a list of all the unit tests
 int (*unitTests[])() = {
         test_swap_one,
@@ -158,7 +191,8 @@ int (*unitTests[])() = {
         test_double_array_size_null,
         test_double_array_size_negative,
         test_double_array_size_zero,
-        test_copy_array_start_end_loop
+        test_copy_array_start_end_loop,
+        test_create_point
 };
 
 int main(int argc, char const *argv[])
