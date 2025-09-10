@@ -30,7 +30,6 @@ typedef struct {
     int y;
 } Point;
 
-
 /**
  * Basic struct to hold a list of points - this list could be a polygon, 
  * but no checking for complexity is done.
@@ -39,7 +38,6 @@ typedef struct {
     Point **points;
     int size;
 } Polygon;
-
 
 /**
  * Swaps the values of a and b. Makes use of pointers to change the values
@@ -107,7 +105,6 @@ int* create_array_of_ints_fib(int size){
     return arr; // return the pointer to the array
 }
 
-
 /**
  * Reverses an array *in place* (meaning you don't copy into another array)
  * 
@@ -123,8 +120,6 @@ void reverse_array(int *arr, int size){
     }
 }
 
-
- 
 /**
  * Doubles the size of an array, and copies all previous values into the new array.
  * All other values should be set to 0. Returns a pointer to the new array
@@ -138,7 +133,7 @@ int* double_array_size(int *arr, int size){
         return NULL; // handle invalid size
     }
 
-    int* new_arr = (int*)calloc(size * 2, sizeof(int)); // allocate memory for the new array and initialize to 0
+    int* new_arr = (int*)calloc(size * 2, sizeof(int)); // allocate memory for the new array
     if (!new_arr) return NULL; // check for allocation failure
 
     for (int i = 0; i < size; i++) {
@@ -225,7 +220,6 @@ Polygon* create_polygon(int size){
     return p; // return the new polygon
 }
 
-
 /**
  * Frees the memory used by the polygon, make sure to loop through
  * all the points, to free them, free the array, and then free the polygon itself.
@@ -248,9 +242,16 @@ void free_polygon(Polygon *p){
  * 0, height
 */
 Polygon* create_rectangle(int width, int height){
-    return NULL;
-}
+    Polygon* rectangle = create_polygon(4); // create a polygon with 4 points
+    if (!rectangle) return NULL; // check for allocation failure
 
+    rectangle->points[0] = create_point(0, 0); // bottom-left
+    rectangle->points[1] = create_point(width, 0); // bottom-right
+    rectangle->points[2] = create_point(width, height); // top-right
+    rectangle->points[3] = create_point(0, height); // top-left
+
+    return rectangle; // return the rectangle polygon
+}
 
 /**
  * Creates a (right) triangle of width and height, using the polygon struct and returns it.

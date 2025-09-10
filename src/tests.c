@@ -197,6 +197,26 @@ int test_free_polygon() {
     return 1;
 }
 
+int test_create_rectangle() {
+    printf("12. test_create_rectangle()\n");
+    int width = 5;
+    int height = 10;
+    Polygon* rect = create_rectangle(width, height);
+    if (rect == NULL) {
+        return 0; // test failed due to allocation failure
+    }
+    if (rect->size == 4 &&
+        rect->points[0]->x == 0 && rect->points[0]->y == 0 &&
+        rect->points[1]->x == width && rect->points[1]->y == 0 &&
+        rect->points[2]->x == width && rect->points[2]->y == height &&
+        rect->points[3]->x == 0 && rect->points[3]->y == height) {
+        free_polygon(rect); // free allocated polygon
+        return 1; // test passed
+    }
+    free_polygon(rect); // free allocated polygon
+    return 0; // test failed
+}
+
 // this is a list of all the unit tests
 int (*unitTests[])() = {
         test_swap_one,
@@ -210,7 +230,8 @@ int (*unitTests[])() = {
         test_copy_array_start_end_loop,
         test_create_point,
         test_create_polygon,
-        test_free_polygon
+        test_free_polygon,
+        test_create_rectangle
 };
 
 int main(int argc, char const *argv[])
