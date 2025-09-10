@@ -303,7 +303,17 @@ void print_polygon(Polygon *p){
  * after area is summed across all points, divide by 2.0 and return the area.
 */
 double calculate_polygon_area(Polygon *p){
-    return 0.0;
+    if (p->size < 3) return 0.0; // not a polygon
+    double area = 0.0;
+    for (int i = 0; i < p->size; i++) {
+        int j = (i + 1) % p->size; // next vertex index, wrapping around
+        area += p->points[i]->x * p->points[j]->y;
+        area -= p->points[j]->x * p->points[i]->y;
+    }
+    if (area < 0) {
+        area = -area; // ensure area is positive
+    }
+    return area / 2.0; // finalize area calculation
 }
 
 #endif // C_PRACTICE_H

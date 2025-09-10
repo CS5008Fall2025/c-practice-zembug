@@ -236,6 +236,22 @@ int test_create_triangle() {
     return 0; // test failed
 }
 
+int test_rectangle_area() {
+    Polygon* rectangle = create_rectangle(13, 69);
+    double area = calculate_polygon_area(rectangle);
+    int result = (area == 897.0) ? 1 : 0;
+    free_polygon(rectangle);
+    return result;
+}
+
+int test_triangle_area() {
+    Polygon* triangle = create_triangle(13, 69);
+    double area = calculate_polygon_area(triangle);
+    int result = (area == 448.5) ? 1 : 0;
+    free_polygon(triangle);
+    return result;
+}
+
 // this is a list of all the unit tests
 int (*unitTests[])() = {
         test_swap_one,
@@ -251,7 +267,9 @@ int (*unitTests[])() = {
         test_create_polygon,
         test_free_polygon,
         test_create_rectangle,
-        test_create_triangle
+        test_create_triangle,
+        test_rectangle_area,
+        test_triangle_area
 };
 
 int main(int argc, char const *argv[])
