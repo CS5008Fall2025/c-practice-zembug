@@ -124,6 +124,30 @@ int test_double_array_size_zero() {
     return 0; // test failed
 }
 
+int test_copy_array_start_end_loop() {
+    printf("8. test_copy_array_start_end_loop()\n");
+    int size = 10;
+    int* arr = create_simple_array(size); // creates [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    int return_size = 0;
+    int* new_arr = copy_array_start_end_loop(arr, size, 3, 7, &return_size); // should create [3, 4, 5, 6, 7]
+    int expected[] = {3, 4, 5, 6, 7}; // expected result
+    if (return_size != 5) { // check if the returned size is correct
+        free(arr);
+        free(new_arr);
+        return 0; // test failed
+    }
+    for (int i = 0; i < return_size; i++) { // check each element in the new array
+        if (new_arr[i] != expected[i]) { // if any element doesn't match
+            free(arr); // free original array
+            free(new_arr); // free new array
+            return 0; // test failed
+        }
+    }
+    free(arr); // free original array
+    free(new_arr); // free new array
+    return 1; // all elements matched
+}
+
 // this is a list of all the unit tests
 int (*unitTests[])() = {
         test_swap_one,
@@ -133,7 +157,8 @@ int (*unitTests[])() = {
         test_double_array_size,
         test_double_array_size_null,
         test_double_array_size_negative,
-        test_double_array_size_zero
+        test_double_array_size_zero,
+        test_copy_array_start_end_loop
 };
 
 int main(int argc, char const *argv[])
