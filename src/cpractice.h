@@ -234,7 +234,7 @@ void free_polygon(Polygon *p){
     for (int i = 0; i < p->size; i++) {
         free(p->points[i]); // free each point
     }
-    free(p->points); // free the array of point pointers
+    free(p->points); // free array of point pointers
     free(p); // free the polygon itself
 }
 
