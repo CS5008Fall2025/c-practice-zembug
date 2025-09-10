@@ -90,7 +90,7 @@ void print_array(int *arr, int size)
  * here is a quick list of numbers: https://www.math.net/list-of-fibonacci-numbers
  **/
 int* create_array_of_ints_fib(int size){
-    if (size <= 0) { // if size is zero or negative, return NULL
+    if (size <= 0) { // check for input validation
         return NULL;
     }
 
@@ -134,7 +134,17 @@ void reverse_array(int *arr, int size){
  * 
 */
 int* double_array_size(int *arr, int size){
-    return NULL;
+    if (size <= 0 || arr == NULL) {
+        return NULL; // handle invalid size
+    }
+
+    int* new_arr = (int*)calloc(size * 2, sizeof(int)); // allocate memory for the new array and initialize to 0
+    if (!new_arr) return NULL; // check for allocation failure
+
+    for (int i = 0; i < size; i++) {
+        new_arr[i] = arr[i]; // copy old values to new array
+    }
+    return new_arr; // return the new array
 }
 
 /**
