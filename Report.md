@@ -7,7 +7,7 @@ Completely answer the report questions below. Make sure to double check the fina
 
 1. What is the difference between a standard numeric type (int, float, double) and a pointer?
 
-Standard numeric types store values while pointers store memory addresses.
+   Standard numeric types store values while pointers store memory addresses.
    
 2. In your test file, we had the following code:
     
