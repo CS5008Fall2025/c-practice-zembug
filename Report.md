@@ -7,7 +7,7 @@ Completely answer the report questions below. Make sure to double check the fina
 
 1. What is the difference between a standard numeric type (int, float, double) and a pointer?
 
-   Standard numeric types store values while pointers store memory addresses.
+   Standard numeric types hold actual data, such as numbers you can directly use in calculations. Pointers hold the location in memory where data lives. They don’t store the value itself, but rather tell you where to find it. This means numeric types represent values, while pointers represent addresses pointing to those values.
    
 2. In your test file, we had the following code:
     
@@ -16,6 +16,8 @@ Completely answer the report questions below. Make sure to double check the fina
     int expected[] = {1, 1, 2, 3, 5};
     ```
     Later in the code we only `free(arr)` but not expected. Why is this? What is the difference in where they are stored in memory?
+
+    In the code, arr is created using malloc, which means it lives in the heap. You have to free heap memory manually using free(arr). The expected array is created inside the function without malloc, so it lives in the stack. Stack memory is automatically cleaned up when the function ends, so you don’t need to free it.
 
 3. What is the difference between the heap and stack when related to memory allocation and management?
 
