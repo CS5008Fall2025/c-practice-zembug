@@ -21,6 +21,8 @@ Completely answer the report questions below. Make sure to double check the fina
 
 3. What is the difference between the heap and stack when related to memory allocation and management?
 
+   The stack is used for temporary memory, such as local variables. When the function ends the memory is automatically cleared. The heap is used for dynamic memory. You can allocate this memory with malloc and then you have to manually clear the memory with free. 
+
 4. Take the following code:
    ```c
    #include <stdio.h>
