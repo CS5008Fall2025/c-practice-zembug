@@ -115,7 +115,7 @@ In Java and Python, do you think new objects are stored on the stack or the heap
 
 Answer here using a paragraph (not just bullet points). 
 
-
+In both Java and Python, when you make a new object, it goes on the heap. The heap is like a big storage area where objects can live as long as they are needed. The stack is smaller and only keeps track of what’s happening right now, like which method is running and its local variables. In Java, if you make an object, the object itself is on the heap, but the variable that points to it is on the stack. When you pass an object to a method, Java doesn’t pass the object itself it passes a copy of the pointer to it. That’s why the method can change what’s inside the object, but it can’t make your variable point to a new object. Python is much the same. Every object you create lives on the heap. A variable in Python is really just a name that points to the object. When you pass something into a function, the reference to that object is passed. The function can change the object’s contents (like adding to a list), but if the function makes the variable point to a new object, the change doesn’t show up outside the function. So in both languages, objects live on the heap, and variables are just references that act like pointers. You don’t pass the object itself, you pass the reference.
 
 
 ## References
