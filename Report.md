@@ -84,20 +84,20 @@ Completely answer the report questions below. Make sure to double check the fina
      - void * calloc(size_t num_elements, size_t element_size) - contiguous allocation for allocating arrays with the default value of 0. Slower than malloc. 
      - int rand(void) - returns a random integer between 0 and RAND_MAX. Seed should be set before hand. 
    
-   1. `stdio.h` - provides functions for input and output [2].
+   1. `stdio.h` - provides functions for input and output [2][3].
       - `printf()` - formats and shows messages or values on the screen
       - `scanf()` - gets input from user and stores it in a variable's memory
       - `fopen()` - opens the specific file
    
-   2. string.h - provides functions to work with test [2].
-      - strcomp() - compares to strings to see if they match
-      - strchr() - finds a character inside a string
-      - strstr() - finds word/phrase inside a string
+   2. `string.h` - provides functions to work with test [2][4].
+      - `strcomp()` - compares to strings to see if they match
+      - `strchr()` - finds a character inside a string
+      - `strstr()` - finds word/phrase inside a string
  
-   3. math.h - provides functions for math operations [2].
-      - ceil(x) - rounds x up to the nearest whole number
-      - floor(x) - rounds x down to the nearest whole number
-      - pow(x, y) - raises x to the power of y
+   3. `math.h` - provides functions for math operations [2][5].
+      - `ceil(x)` - rounds x up to the nearest whole number
+      - `floor(x)` - rounds x down to the nearest whole number
+      - `pow(x, y)` - raises x to the power of y
  
 
 8. Looking at the struct Point and Polygon, we have a mix of values on the heap, and we make ample use of pointers. Take a moment to draw out how you think that looks after `create_triangle(2,3)` is called (see an example below). The important part of the drawing it to see that not everything is stored together in memory, but in different locations! Store the image file in your github repo and link it here. You can use any program to draw it such as [drawIO](https://app.diagrams.net/), or even draw it by hand and take a picture of it. 
@@ -123,7 +123,13 @@ Add any references you use here. Use ACM style formatting, adding to the numbers
 
 1. cppreference.com Contributors. 2025. Standard library header <stdlib.h>. cppreference.com. Retrieved May 1, 2025 from https://en.cppreference.com/w/c/header/stdlib
 
-2. IBM Documentation. stdio.h — Standard input and output. (March 26, 2025). Retrieved September 11, 2025. (https://www.ibm.com/docs/en/zos/3.1.0?topic=files-stdioh-standard-input-output)
+2. IBM Documentation. Standard C Library Functions Table, By Name. (July 8, 2025). Retrieved September 11, 2025. (https://www.ibm.com/docs/en/i/7.5.0?topic=extensions-standard-c-library-functions-table-by-namet)
+
+3. IBM Documentation. stdio.h — Standard input and output. (March 26, 2025). Retrieved September 11, 2025. (https://www.ibm.com/docs/en/zos/3.1.0?topic=files-stdioh-standard-input-output)
+
+4. IBM Documentation. string.h — String manipulation functions. (March 26, 2025). Retrieved September 11, 2025. (https://www.ibm.com/docs/en/zos/3.1.0?topic=files-stringh-string-manipulation-functions)
+
+5. IBM Documentation. math.h — Floating-point math functions. (March 26, 2025). Retrieved September 11, 2025. (https://www.ibm.com/docs/en/zos/3.1.0?topic=files-mathh-floating-point-math-functions)
 
 ## Resource/Help: Linking to images?
 To link an image, you use the following code
