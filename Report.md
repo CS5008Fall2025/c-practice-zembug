@@ -17,11 +17,11 @@ Completely answer the report questions below. Make sure to double check the fina
     ```
     Later in the code we only `free(arr)` but not expected. Why is this? What is the difference in where they are stored in memory?
 
-    In the code, arr is created using malloc, which means it lives in the heap. You have to free heap memory manually using free(arr). The expected array is created inside the function without malloc, so it lives in the stack. Stack memory is automatically cleaned up when the function ends, so you don’t need to free it.
+    In the code, `arr` is created using `malloc`, which means it lives in the heap. You have to free heap memory manually using `free(arr)`. The expected array is created inside the function without `malloc`, so it lives in the stack. Stack memory is automatically cleaned up when the function ends, so you don’t need to free it.
 
 3. What is the difference between the heap and stack when related to memory allocation and management?
 
-   The stack is used for temporary memory, such as local variables. When the function ends the memory is automatically cleared. The heap is used for dynamic memory. You can allocate this memory with malloc and then you have to manually clear the memory with free. 
+   The stack is used for temporary memory, such as local variables. When the function ends the memory is automatically cleared. The heap is used for dynamic memory. You can allocate this memory with `malloc` and then you have to manually clear the memory with free. 
 
 4. Take the following code:
    ```c
@@ -75,7 +75,7 @@ Completely answer the report questions below. Make sure to double check the fina
 
 6. Speaking about `malloc` and `calloc`, what is the difference between the two (you may need to research it!)?
 
-   The difference lies in how memory is allocated and initialized. malloc allocates a single block of memory and does not initialize it, meaning the contents of the memory are undefined. In contrast, calloc allocates memory for multiple blocks and initializes all of the memory to zero.
+   The difference lies in how memory is allocated and initialized. `malloc` allocates a single block of memory and does not initialize it, meaning the contents of the memory are undefined. In contrast, `calloc` allocates memory for multiple blocks and initializes all of the memory to zero.
 
 7. What are some common built in libraries used for C, list at least 3 and explain each one in your own words. Name a few (at least 3) functions in those libraries (hint: we used two of the most common ones in this assignment. There are many resources online that tell you functions in each library - you need to include at least 1 reference, but ideally for every library, you should have a reference to it)?
    - Example: stdlib.h - provides functions for general-purpose operations including
@@ -84,10 +84,10 @@ Completely answer the report questions below. Make sure to double check the fina
      - void * calloc(size_t num_elements, size_t element_size) - contiguous allocation for allocating arrays with the default value of 0. Slower than malloc. 
      - int rand(void) - returns a random integer between 0 and RAND_MAX. Seed should be set before hand. 
    
-   1. stdio.h - provides functions for input and output [2].
-      - printf() - formats and shows messages or values on the screen
-      - scanf() - gets input from user and stores it in a variable's memory
-      - fopen() - opens the specific file
+   1. `stdio.h` - provides functions for input and output [2].
+      - `printf()` - formats and shows messages or values on the screen
+      - `scanf()` - gets input from user and stores it in a variable's memory
+      - `fopen()` - opens the specific file
    
    2. string.h - provides functions to work with test [2].
       - strcomp() - compares to strings to see if they match
