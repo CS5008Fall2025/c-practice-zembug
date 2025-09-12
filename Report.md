@@ -115,6 +115,7 @@ In Java and Python, do you think new objects are stored on the stack or the heap
 
 Answer here using a paragraph (not just bullet points). 
 
+In both Java and Python, objects are stored on the heap rather than the stack. The stack is used for short-term data like function calls and local variables, which disappear when the function returns. If objects were stored on the stack, they would be destroyed too soon, making them impossible to share across different parts of the program. By storing them on the heap, objects can live as long as they are needed. When you create an object, the program gives you a reference, which works like a pointer in C. This reference doesn’t contain the object itself but tells the program where to find it in memory. Because functions receive references (not copies of whole objects), Java and Python effectively use pass by reference for objects. This makes it efficient to share and update the same object across different parts of a program, without duplicating large amounts of data. [6][7][8]
 
 
 ## References
@@ -129,6 +130,14 @@ Add any references you use here. Use ACM style formatting, adding to the numbers
 4. IBM Documentation. string.h — String manipulation functions. (March 26, 2025). Retrieved September 11, 2025. (https://www.ibm.com/docs/en/zos/3.1.0?topic=files-stringh-string-manipulation-functions)
 
 5. IBM Documentation. math.h — Floating-point math functions. (March 26, 2025). Retrieved September 11, 2025. (https://www.ibm.com/docs/en/zos/3.1.0?topic=files-mathh-floating-point-math-functions)
+
+6. GeeksforGeeks. How are Java Objects Stored in Memory?. (July 23, 2025). Retrieved September 11, 2025. https://www.geeksforgeeks.org/java/how-are-java-objects-stored-in-memory/
+
+7. GeeksforGeeks. Java Stack vs Heap Memory Allocation. (August 1, 2025). Retrieved September 11, 2025. https://www.geeksforgeeks.org/java/java-stack-vs-heap-memory-allocation/
+
+8. GeeksforGeeks. Pass by reference vs value in Python. (June 30, 2025). Retrieved September 11, 2025. https://www.geeksforgeeks.org/python/pass-by-reference-vs-value-in-python/
+
+
 
 ## Resource/Help: Linking to images?
 To link an image, you use the following code
