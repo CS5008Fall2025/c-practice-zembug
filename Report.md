@@ -71,7 +71,11 @@ Completely answer the report questions below. Make sure to double check the fina
 
 5. When you use `malloc`, where are you storing the information?
 
+   The information is allocated to the heap.
+
 6. Speaking about `malloc` and `calloc`, what is the difference between the two (you may need to research it!)?
+
+   The difference lies in how memory is allocated and initialized. malloc allocates a single block of memory and does not initialize it, meaning the contents of the memory are undefined. In contrast, calloc allocates memory for multiple blocks and initializes all of the memory to zero.
 
 7. What are some common built in libraries used for C, list at least 3 and explain each one in your own words. Name a few (at least 3) functions in those libraries (hint: we used two of the most common ones in this assignment. There are many resources online that tell you functions in each library - you need to include at least 1 reference, but ideally for every library, you should have a reference to it)?
    - Example: stdlib.h - provides functions for general-purpose operations including
