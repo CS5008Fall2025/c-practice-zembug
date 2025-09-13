@@ -45,9 +45,8 @@ Completely answer the report questions below. Make sure to double check the fina
    ```
    Would the code run correctly? Even if it does compile, what would be some potential runtime issues? After answering your thoughts, put the output of a run below (you may need to run it a few times).
 
-   This program will compile, but it will not always run correctly. The problem is in the function new_point. Inside that function, a variable pt is created on the stack, and then the function returns the address of that local variable. As soon as the function ends, that memory is no longer valid, so the pointer you return points to something that no longer exists. Using this pointer later in main leads to undefined behavior. Sometimes the program might seem to work and print the expected values, but other times it might print random numbers or even crash with a segmentation fault.
+   This program will compile, but it will not always run correctly. The problem is in the function `new_point`. Inside that function, a variable `pt` is created, and then the function returns the address of that local variable. As soon as the function ends, that memory is becomes invalid, so the pointer returned points to something that no longer exists. Using this pointer later in `main` leads to undefined behavior. While the program might sometimes appear to work or print garbage values, I ran it 100 times on Ubuntu and consistently received a segmentation fault as output.
 
-   Ran 100 times and only received the following output using Ubuntu:
    ```text
    Segmentation fault (core dumped)
 
