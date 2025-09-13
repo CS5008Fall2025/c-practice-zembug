@@ -44,13 +44,18 @@ Completely answer the report questions below. Make sure to double check the fina
    }
    ```
    Would the code run correctly? Even if it does compile, what would be some potential runtime issues? After answering your thoughts, put the output of a run below (you may need to run it a few times).
+
+   This program will compile, but it will not always run correctly. The problem is in the function new_point. Inside that function, a variable pt is created on the stack, and then the function returns the address of that local variable. As soon as the function ends, that memory is no longer valid, so the pointer you return points to something that no longer exists. Using this pointer later in main leads to undefined behavior. Sometimes the program might seem to work and print the expected values, but other times it might print random numbers or even crash with a segmentation fault.
+
+   Ran 100 times and only received the following output using Ubuntu:
    ```text
-   output here
+   Segmentation fault (core dumped)
+
    ```
 
    Fix the code in the following block:
    ```c
-   #include <stdio.h>
+      #include <stdio.h>
    #include <stdlib.h>
 
    typedef struct {
@@ -58,13 +63,18 @@ Completely answer the report questions below. Make sure to double check the fina
    } Point;
 
    Point * new_point(int x, int y) {
-     Point pt = {x, y};
-     return &pt;
-   }
+     Point* pt = malloc(sizeof(Point));
+     if (pt != NULL) {
+       pt->x = x;
+       pt->y = y;
+     }
+      return pt;
+    }
 
    int main() {
       Point* point = new_point(10, 10);
       printf("x: %d, y: %d", point->x, point->y);
+      free(point);
       return 0;
    }
    ```
