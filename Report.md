@@ -118,6 +118,11 @@ For both these questions, are you are free to use what you did as the last secti
 
 1. Select one technical interview question (this module or previous) from the [technical interview list](https://github.com/CS5008-khoury/Resources/blob/main/TechInterviewQuestions.md) below and answer it in a few sentences. You can use any resource you like to answer the question.
 
+What is a pointer? What is the relationship between pointers and arrays in C?
+
+A pointer in C is a variable that holds the memory address of another variable. Pointers and arrays are closely related because the name of an array can act like a pointer to its first element, and both can be used with indexing or arithmetic to access data in memory. While they are not the same, this relationship allows C to handle data efficiently and flexibly.
+
+
 2. Select one coding question (this module or previous) from the [coding practice repository](https://github.com/CS5008-khoury/Resources/blob/main/LeetCodePractice.md) and include a c file with that code with your submission. Make sure to add comments on what you learned, and if you compared your solution with others. 
 
 ## Deeper Thinking
