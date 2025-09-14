@@ -100,7 +100,7 @@ Completely answer the report questions below. Make sure to double check the fina
       - `fopen()` - opens the specific file
    
    2. `string.h` - provides functions to work with test [2][4].
-      - `strcomp()` - compares to strings to see if they match
+      - `strcmp()` - compares to strings to see if they match
       - `strchr()` - finds a character inside a string
       - `strstr()` - finds word/phrase inside a string
  
