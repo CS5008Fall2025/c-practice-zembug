@@ -54,16 +54,17 @@ Completely answer the report questions below. Make sure to double check the fina
 
    Fix the code in the following block:
    ```c
-      #include <stdio.h>
+   #include <stdio.h>
    #include <stdlib.h>
 
    typedef struct {
      int x, y;
    } Point;
 
-   Point * new_point(int x, int y) {
-     Point* pt = malloc(sizeof(Point));
-     if (pt != NULL) {
+   Point * new_point(int x, int y) { 
+     Point* pt = malloc(sizeof(Point)); // allocate memory for Point on heap
+     if (pt != NULL) { //check if allocate was succesful
+       //assign values
        pt->x = x;
        pt->y = y;
      }
@@ -71,7 +72,7 @@ Completely answer the report questions below. Make sure to double check the fina
     }
 
    int main() {
-      Point* point = new_point(10, 10);
+      Point* point = new_point(10, 10); // create Point with coords
       printf("x: %d, y: %d", point->x, point->y);
       free(point);
       return 0;
@@ -124,6 +125,8 @@ For both these questions, are you are free to use what you did as the last secti
 
 
 2. Select one coding question (this module or previous) from the [coding practice repository](https://github.com/CS5008-khoury/Resources/blob/main/LeetCodePractice.md) and include a c file with that code with your submission. Make sure to add comments on what you learned, and if you compared your solution with others. 
+
+twosum.c file in repository
 
 ## Deeper Thinking
 In Java and Python, do you think new objects are stored on the stack or the heap? Feel free to work through your thoughts as to why it would be better to store them on the stack or heap. You should consider pass by reference, and how that is similar to pointer in your answer. Feel free to use resources, but make sure to cite them, and include the citation below using ACM format. You will note LLMs are not valid references, but they can give you directions to valid references. Make sure to use your own words. 
